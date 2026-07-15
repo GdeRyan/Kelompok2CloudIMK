@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OurCloud</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body class="container">
+    <h2>OurCloud</h2>
+    <form class="search-bar">
+        <input type="text" placeholder="Cari file....">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+
+    <div class="actions">
+        <button class="btn-primary" onclick="createNewFolder()"><i class="fa-solid fa-folder-plus"></i> Create
+            Folder</button>
+        <button class="btn-secondary"><i class="fa-solid fa-file-arrow-up"></i> Upload File</button>
+        <button class="btn-secondary"><i class="fa-solid fa-folder"></i> Upload Folder</button>
+    </div>
+
+    <div class="file-preview-wrapper">
+        <div class="folder-container">
+        </div>
+
+        <div class="file-container">
+            <i class="fa-solid fa-ellipsis-vertical menu-dots" onclick="toggleMenu(this)"></i>
+            <div class="file-menu" style="display: none;">
+                <button class="open-with"><i class="fa-solid fa-arrow-up-right-from-square"></i>Buka</button>
+                <button class="share-link"><i class="fa-solid fa-link"></i>Bagikan</button>
+                <button class="rename"><i class="fa-solid fa-pen"></i> Edit File</button>
+                <button class="download"><i class="fa-solid fa-download"></i> Unduh</button>
+                <button class="delete"><i class="fa-solid fa-trash"></i> Hapus</button>
+            </div>
+            <div class="inner-box"></div>
+        </div>
+    </div>
+    </div>
+
+    <nav class="nav-bottom">
+        <button><i class="fa-solid fa-house"></i></button>
+        <button><i class="fa-solid fa-plus"></i></button>
+        <button><i class="fa-solid fa-user"></i></button>
+    </nav>
+
+    <!-- === Loading === -->
+    <div id="loading" class="spinner center" style="display: none;">
+    </div>
+    <div id="notif-container"></div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

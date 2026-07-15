@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cascadia Code', monospace;
+    background: rgb(21, 21, 21);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h2 {
+    font-size: 40px;
+    margin: 30px 0;
+    color: #ccc;
+}
+
+.search-bar {
+    display: flex;
+    border: 2px solid rgb(100, 120, 100);
+    border-radius: 20px;
+    padding: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid #000;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 30px;
+}
+
+.btn-primary {
+    background: #ff6600;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: black;
+    color: white;
+    border-color: white;
+}
+.btn-secondary {
+    background: rgb(213, 232, 232);
+    color: #000;
+}
+
+.btn-secondary:hover {
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+.file-preview-wrapper {
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 100px;
+}
+
+.folder-container {
+    height: 80px;
+    background: rgb(30, 30, 30);
+    border: 1px solid #444;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 15px;
+}
+
+.file-container {
+    position: relative;
+    height: 300px;
+    background: rgb(30, 30, 30);
+    border: 1px solid #444;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-box {
+    width: 80%;
+    height: 80%;
+    background: #222;
+    border: 2px solid rgb(100, 100, 100);
+    border-radius: 8px;
+}
+
+.menu-dots {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.file-menu {
+    position: absolute;
+    top: 45px;
+    right: 15px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 160px;
+}
+
+.file-menu button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 13px;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
+.nav-bottom {
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    gap: 40px;
+    background: #000;
+    padding: 15px 40px;
+    border-radius: 50px;
+}
+
+.nav-bottom button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
+
