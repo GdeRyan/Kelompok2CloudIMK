@@ -1,0 +1,38 @@
+const db = require('../config/db');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+
+// === REGISTER ===
+exports.register = (req, res) => {
+    const { username, password } = req.body;
+    const hashedPassword = bcrypt.hashSync(password, 8);
+    db.query("INSERT INTO users (username, password) VALUES (?, ?)", [username, hashedPassword], (err) => {
+        if (err) return res.status(500).json({ message: "GAGAL daftar" });
+        res.json({ message: "User BERHASIL dibuat" });
+    });
+};
+
+// === LOGIN ===
+exports.login = (req, res) => {
+    const { username, password } = req.body;
+    const sql = "SELECT * FROM users WHERE username = ?";
+
+    db.query(sql, [username], async (err, result) => {
+        if (err || result.length === 0) return res.status(401).json({ message: "User TIDAK ditemukan" });
+        const user = result[0];
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(401).json({ message: "Password SALAH" });
+
+        // -- Token --
+        const token = jwt.sign({ id: user.id }, "TOKENNYA", { expiresIn: '1h' });
+        res.json({ token });
+    });
+};
+
+// === List Account ===
+exports.listUsers = (req, res) => {
+    db.query("SELECT id, username FROM users", (err, results) => {
+        if (err) return res.status(500).json({ message: "GAGAL ambil daftar user" });
+        res.json(results);
+    });
+};
